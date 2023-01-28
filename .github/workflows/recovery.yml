@@ -66,7 +66,7 @@ jobs:
        - name: Build recovery
          run: |
               cd work
-              . build/envsetup.sh && lunch $OT$SYM$DEVICE-$BTYPE && export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET$IMAGE
+              . build/envsetup.sh && lunch $OT$SYM$DEVICE-$BTYPE && export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET$IMAGE -j30
               curl -LO https://github.com/SA-17/rm_pkg/raw/main/zip.sh
               bash zip.sh
 
