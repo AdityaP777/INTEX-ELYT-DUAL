@@ -59,7 +59,7 @@ jobs:
          run: |   
              mkdir work
              cd work
-             repo init -u $MANIFEST -b $BRANCH --depth=1              
+             repo init --depth=1 -u $MANIFEST -b $BRANCH              
              repo sync -c -j700 --force-sync --no-clone-bundle --no-tags
              git clone $DT_LINK -b $DT_BR --depth=1 --single-branch device/$MANUFACTURER/$DEVICE
              
