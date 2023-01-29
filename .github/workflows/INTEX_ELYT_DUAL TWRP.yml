@@ -71,10 +71,7 @@ jobs:
               bash zip.sh
 
        - name: Release recovery
-         uses: softprops/action-gh-release@v1
-         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         uses: actions/upload-artifact@v3
          with:
-          tag_name: ${{ github.run_id }}
-          name: recovery for ${{ github.event.inputs.DEVICE_NAME }}
-          files: work/out/target/product/recovery.zip
+          name: INTEX ELYT DUAL TWRP
+          path: work/out/target/product/recovery.zip
