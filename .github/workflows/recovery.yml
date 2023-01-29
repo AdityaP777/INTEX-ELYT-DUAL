@@ -14,7 +14,7 @@ env:
   # 2) manifest is required choose the compatible its depend on your current android version.
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
   # 3) manifest branch same thing it depend on your current android
-  BRANCH: twrp-7.1
+  BRANCH: twrp-8.1
 
   # B) Information about your device:
   # 1) every device tree use main file called twrp_/omni_****.mk use the name between .mk and omni_/twrp_ keyword
@@ -59,7 +59,7 @@ jobs:
          run: |   
              mkdir work
              cd work
-             repo init --depth=1 -u $MANIFEST -b $BRANCH              
+             repo init -u $MANIFEST -b $BRANCH --depth=1
              repo sync -c -j700 --force-sync --no-clone-bundle --no-tags
              git clone $DT_LINK -b $DT_BR --depth=1 --single-branch device/$MANUFACTURER/$DEVICE
              
