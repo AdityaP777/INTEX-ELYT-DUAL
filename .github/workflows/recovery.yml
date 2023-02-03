@@ -51,7 +51,7 @@ jobs:
             sudo apt update && sudo apt install zip
             curl -LO https://github.com/SA-17/rm_pkg/raw/main/setup.sh && bash setup.sh
             sudo -E apt-get -qq update
-            sudo -E apt-get -qq install bc build-essential tar zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex curl  bison aria2
+            sudo -E apt-get -qq install schedtool bc build-essential tar zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex curl  bison aria2
             sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
             sudo chmod a+rx /usr/local/bin/repo
             
