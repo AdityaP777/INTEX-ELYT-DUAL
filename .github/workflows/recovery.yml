@@ -2,6 +2,9 @@ name: Build recovery(twrp,shrp,pbrp)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   # change value from:
 
