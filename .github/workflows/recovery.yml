@@ -79,5 +79,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          with:
           tag_name: ${{ github.run_id }}
-          name: recovery for ${{ github.event.inputs.DEVICE_NAME }}
+          name: recovery for ${{ env.DEVICE }}
           files: work/out/target/product/recovery.zip
