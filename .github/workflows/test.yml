@@ -1,4 +1,4 @@
-name: Build recovery(twrp,shrp,pbrp)
+name: TW_VERSION_INFO_TEST
 on:
   workflow_dispatch:
 
