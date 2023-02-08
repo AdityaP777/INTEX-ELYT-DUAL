@@ -54,8 +54,17 @@ jobs:
                                
        - name: remove pkg and setting repo
          run: |
-            echo TW_VERSION=$(wget -qO- https://github.com/TeamWin/android_bootable_recovery/blob/android-9.0/variables.h | grep 'TW_MAIN_VERSION_STR' | sed -n "s/.*<span class=\"pl-s\"><span class=\"pl-pds\">&quot;\(.*\)<span class=\"pl-pds\">&quot;<\/span><\/span>.*/\1/p" | sed 's/<.*>//g')-0-$DEVICE >> $GITHUB_ENV
+            echo TWRP_VERSION=$(wget -qO- https://github.com/TeamWin/android_bootable_recovery/blob/android-9.0/variables.h | grep 'TW_MAIN_VERSION_STR' | sed -n "s/.*<span class=\"pl-s\"><span class=\"pl-pds\">&quot;\(.*\)<span class=\"pl-pds\">&quot;<\/span><\/span>.*/\1/p" | sed 's/<.*>//g')-0-$DEVICE >> $GITHUB_ENV
 
        - name: Show Env Info
          run: |
-            echo $TW_VERSION
+            echo $TWRP_VERSION
+
+       - name: Release recovery
+         uses: softprops/action-gh-release@v1
+         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         with:
+          tag_name: ${{ env.TWRP_VERSION }}#${{ github.run_id }}
+          name: recovery for ${{ env.DEVICE }}
+          
