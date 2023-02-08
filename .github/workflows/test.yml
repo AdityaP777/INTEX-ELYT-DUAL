@@ -69,7 +69,7 @@ jobs:
        - name: Versions Infos
          run: |
               cd work
-              . build/envsetup.sh# && lunch $OT$SYM$DEVICE-$BTYPE && export ALLOW_MISSING_DEPENDENCIES=true
+              . build/envsetup.sh # && lunch $OT$SYM$DEVICE-$BTYPE && export ALLOW_MISSING_DEPENDENCIES=true
               echo "tw_version:-" $tw_version
               echo "TW_VERSION_VAR:-" $TW_VERSION_VAR
               echo "TW_MAIN_VERSION_STR:-" $TW_MAIN_VERSION_STR
