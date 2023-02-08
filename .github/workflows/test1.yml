@@ -7,8 +7,7 @@ permissions:
 
 env:
 
-  TW_VERSION: 
-    run: $(wget -qO- https://github.com/TeamWin/android_bootable_recovery/blob/android-9.0/variables.h | grep 'TW_MAIN_VERSION_STR' | sed -n "s/.*<span class=\"pl-s\"><span class=\"pl-pds\">&quot;\(.*\)<span class=\"pl-pds\">&quot;<\/span><\/span>.*/\1/p" | sed 's/<.*>//g')-0-$DEVICE
+  #TW_VERSION: 
   
   # change value from:
 
@@ -54,5 +53,9 @@ jobs:
          uses: actions/checkout@master
                                
        - name: remove pkg and setting repo
+         run: |
+            echo TW_VERSION=$(wget -qO- https://github.com/TeamWin/android_bootable_recovery/blob/android-9.0/variables.h | grep 'TW_MAIN_VERSION_STR' | sed -n "s/.*<span class=\"pl-s\"><span class=\"pl-pds\">&quot;\(.*\)<span class=\"pl-pds\">&quot;<\/span><\/span>.*/\1/p" | sed 's/<.*>//g')-0-$DEVICE >> $GITHUB_ENV
+
+       - name: Show Env Info
          run: |
             echo $TW_VERSION
