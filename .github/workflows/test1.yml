@@ -7,7 +7,8 @@ permissions:
 
 env:
 
-  TW_VERSION: ${{ (wget -qO- https://github.com/TeamWin/android_bootable_recovery/blob/android-9.0/variables.h | grep 'TW_MAIN_VERSION_STR' | sed -n "s/.*<span class=\"pl-s\"><span class=\"pl-pds\">&quot;\(.*\)<span class=\"pl-pds\">&quot;<\/span><\/span>.*/\1/p" | sed 's/<.*>//g')-0-INTEX_ELYT_DUAL }}
+  TW_VERSION: 
+    run: $(wget -qO- https://github.com/TeamWin/android_bootable_recovery/blob/android-9.0/variables.h | grep 'TW_MAIN_VERSION_STR' | sed -n "s/.*<span class=\"pl-s\"><span class=\"pl-pds\">&quot;\(.*\)<span class=\"pl-pds\">&quot;<\/span><\/span>.*/\1/p" | sed 's/<.*>//g')-0-$DEVICE
   
   # change value from:
 
